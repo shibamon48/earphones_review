@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get "user_sessions/login"
-  get "user_sessions/logout"
 root "reviews#index"
 
 resources :users
