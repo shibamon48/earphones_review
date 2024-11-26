@@ -42,6 +42,8 @@
 - ブックマークCRUD
 
 ## 画面遷移図
+figma:
 https://www.figma.com/design/UKe6A0PagzE4vNmV4pV4Jj/%E7%84%A1%E9%A1%8C?node-id=0-1&t=2xIljjR9tjpmo8nX-1
 
 ## ER図
+https://drive.google.com/file/d/1NmUbsdiqo84aHiJ6ZOfLsq00EidkJ5F_/view?usp=sharing
