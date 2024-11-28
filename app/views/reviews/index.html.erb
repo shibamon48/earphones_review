@@ -1,1 +1,18 @@
-<h1>yahoo</h1>
+<div class="container mx-auto w-full h-full">
+  <div class="flex justify-around my-5">
+    <div>
+      <input type="text" placeholder="フリーワード" class="input input-bordered w-full max-w-xs" />
+    </div>
+    <div>
+      <input type="text" placeholder="タグ" class="input input-bordered w-full max-w-xs" />
+    </div>
+    <div>
+      <input type="text" placeholder="昇順"class="input input-bordered w-full max-w-xs" />
+    </div>
+  </div>
+
+  <div class="flex justify-around grid grid-cols-3 pt-3">
+    <%= render partial: "shared/card", collection: @reviews, as: 'review'%>
+  </div>
+
+</div>
