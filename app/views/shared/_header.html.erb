@@ -1,5 +1,7 @@
-<div class="flex justify-between bg-gray-200 p-4">
+<div class="flex justify-between bg-orange-100 p-4 h-20 border-b-4 border-slate-500">
 <%= link_to "トップ", root_path %> |
+
+<%= link_to "レビュー作成", new_review_path %>
 
 <%= link_to "レビュー一覧", reviews_path %>
 <% if logged_in? %>

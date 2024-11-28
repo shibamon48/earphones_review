@@ -1,0 +1,26 @@
+<div class="container mx-auto w-full h-screen px-8 py-14">
+  <%= form_with model: @review do |f| %>
+    <div class="flex justify-center space-x-40">
+      <div class="w-80 h-80 bg-slate-400">
+      </div>
+
+      <div class="w-96 h-96">
+        <div class= "my-5">
+          <%= f.label :maker%>
+          <%= f.text_field :maker %>
+        </div>
+        <div class= "my-5">
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col my-10">
+      <%= f.text_area :body, class: "textarea textarea-bordered w-3/4 mx-auto", placeholder: "レビュー" %>
+      <div class="mx-auto my-10">
+        <%= f.submit "投稿する", class: "btn stone-300" %>
+      </div>
+    </div>
+  <% end %>
+</div>
