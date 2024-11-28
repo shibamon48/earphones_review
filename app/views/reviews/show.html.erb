@@ -1,0 +1,27 @@
+<div class="container mx-auto w-full h-screen px-8 py-14">
+  <div class="flex justify-center space-x-40">
+    <div class="w-80 h-80 bg-slate-400">
+    </div>
+
+    <div class="w-96 h-96">
+      <div class= "my-5">
+        <p>メーカー</p>
+        <p><%= @review.maker %></p>
+      </div>
+      <div class= "my-5">
+        <p>名前</p>
+        <p><%= @review.name %></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="w-3/4 mx-auto">
+    <p>レビュー</p>
+    <p class="w-full h-32 bg-stone-200"><%= @review.body %></p>
+  </div>
+
+  <div class="flex justify-around my-10">
+    <%= link_to "編集", edit_review_path(@review), class: "btn btn-primary" %>
+    <%= link_to "削除", review_path(@review), data: { turbo_method: :delete }, class: "btn btn-secondary" %>
+  </div> 
+</div>

@@ -1,13 +1,15 @@
-<div class="mr-10 mb-5 pb-12 bg-stone-200">
-  <div class="flex">
-    <div class="w-32 h-32 m-5 bg-zinc-400">
-    </div>
-    <div class="flex flex-col w-3/5 p-5">
-      <p><%= review.maker %></p>
-      <h2 class="mb-5"><%= review.name %></h2>
-      <div class="w-full h-20 bg-zinc-300">
-        <p><%= review.body %></p>
+<div class="mr-10 mb-5 pb-12 bg-stone-200 hover:bg-yellow-100">
+  <a href="/reviews/<%= review.id %>">
+    <div class="flex">
+      <div class="w-32 h-32 m-5 bg-zinc-400">
+      </div>
+      <div class="flex flex-col w-3/5 p-5">
+        <p><%= review.maker %></p>
+        <h2 class="mb-5"><%= review.name %></h2>
+        <div class="w-full h-20 bg-zinc-300">
+          <p><%= review.body %></p>
+        </div>
       </div>
     </div>
-  </div>
+  </a>
 </div>

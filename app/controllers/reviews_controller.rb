@@ -9,6 +9,7 @@ class ReviewsController < ApplicationController
   end
   
   def show
+    @review = Review.find(params[:id])
   end
 
   def edit
@@ -29,6 +30,10 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    @review = Review.find(params[:id])
+    @review.destroy!
+    flash[:info] = "レビューを削除しました"
+    redirect_to reviews_path, status: :see_other
   end
   
   private
