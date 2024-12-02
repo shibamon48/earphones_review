@@ -1,6 +1,11 @@
 <div class="container mx-auto w-full h-screen px-8 py-14">
   <div class="flex justify-center space-x-40">
-    <div class="w-80 h-80 bg-slate-400">
+    <div class="w-80 h-80">
+      <% if @review.image.attached? %>
+        <%= image_tag @review.image, class: "w-80 h-80" %>
+      <% else %>
+        <div class="w-full h-full bg-slate-400"></div>
+      <% end %>
     </div>
 
     <div class="w-96 h-96">
