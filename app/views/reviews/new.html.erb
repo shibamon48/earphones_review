@@ -1,7 +1,14 @@
 <div class="container mx-auto w-full h-screen px-8 py-14">
   <%= form_with model: @review do |f| %>
     <div class="flex justify-center space-x-40">
-      <div class="w-80 h-80 bg-slate-400">
+      <div>
+        <div class="w-80 h-80 bg-slate-400">
+        </div>
+        
+        <div>
+          <%= f.label :image %>
+          <%= f.file_field :image %>
+        </div>
       </div>
 
       <div class="w-96 h-96">
