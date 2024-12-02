@@ -1,0 +1,21 @@
+<div class="mr-10 mb-5 pb-12 bg-amber-50 rounded-md hover:bg-yellow-100">
+  <a href="/reviews/<%= review.id %>">
+    <div class="flex">
+      <div class="w-32 h-32 m-5">
+        <% if review.image.attached? %>
+          <%= image_tag review.image, class: "w-32 h-32 rounded-md" %>
+        <% else %>
+          <div class="w-full h-full rounded-md bg-zinc-500"></div>
+        <% end %>
+      </div>
+
+      <div class="flex flex-col w-3/5 p-5">
+        <p><%= review.maker %></p>
+        <h2 class="mb-5 font-semibold"><%= review.name %></h2>
+        <div class="w-full h-20 rounded-md bg-zinc-300">
+          <p><%= review.body %></p>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>

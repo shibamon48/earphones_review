@@ -1,16 +1,16 @@
-<div class="flex justify-between bg-orange-100 p-4 h-20 border-b-4 border-slate-500">
-<%= link_to "トップ", root_path %> |
+<div class="flex justify-between items-center bg-orange-100 p-4 h-20 border-b-4 border-slate-500">
+  <%= link_to "トップ", root_path %> |
 
-<%= link_to "レビュー作成", new_review_path %>
+  <%= link_to "レビュー作成", new_review_path %>
 
-<%= link_to "レビュー一覧", reviews_path %>
-<% if logged_in? %>
-  <%= link_to "マイレビュー", user_path(current_user) %>
-<% end %>
+  <%= link_to "レビュー一覧", reviews_path %>
+  <% if logged_in? %>
+    <%= link_to "マイページ", user_path(current_user) %>
+  <% end %>
 
-<% if logged_in? %>
-  <%= link_to "ログアウト", logout_path, data: {turbo_method: :delete} %>
-<% else %>
-  <%= link_to "ログイン", :login %>
-<% end %>
+  <% if logged_in? %>
+    <%= link_to "ログアウト", logout_path, data: {turbo_method: :delete} %>
+  <% else %>
+    <%= link_to "ログイン", :login %>
+  <% end %>
 </div>
