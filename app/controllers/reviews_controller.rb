@@ -13,6 +13,7 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+    @review = Review.find(params[:id])
   end
 
   def create
@@ -27,6 +28,14 @@ class ReviewsController < ApplicationController
   end
 
   def update
+    @review = Review.find(params[:id])
+    if @review.update(review_params)
+      flash[:info] = "レビューを更新しました"
+      redirect_to review_path(@review)
+    else
+      flash.now[:error] = "レビューの更新に失敗しました"
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
