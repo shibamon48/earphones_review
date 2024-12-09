@@ -16,3 +16,4 @@ databases:
   - name: earphone_review_DB
     databaseName: earphone_review_db
     user: earphones_review
+    region: singapore
