@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  skip_before_action :require_login, only: %i[new index show]
+  skip_before_action :require_login, only: %i[index show]
   def new
     @review = Review.new
   end
@@ -48,7 +48,7 @@ class ReviewsController < ApplicationController
   
   private
   def review_params
-    params.require(:review).permit(:name, :maker, :body, :image).merge(user_id: current_user.id)
+    params.require(:review).permit(:name, :maker, :rating, :body, :image).merge(user_id: current_user.id)
   end
 
 end

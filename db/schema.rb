@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_12_02_135302) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_13_131317) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,12 +42,21 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_02_135302) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "bookmarks", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "review_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["review_id"], name: "index_bookmarks_on_review_id"
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "name", null: false
     t.string "maker", null: false
     t.text "body"
-    t.float "rating"
+    t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_reviews_on_user_id"
@@ -85,6 +94,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_02_135302) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bookmarks", "reviews"
+  add_foreign_key "bookmarks", "users"
   add_foreign_key "reviews", "users"
   add_foreign_key "reviews_tags", "reviews"
   add_foreign_key "reviews_tags", "tags"
