@@ -11,8 +11,13 @@
 
       <div class="flex flex-col w-3/5 p-5">
         <p><%= review.maker %></p>
-        <h2 class="mb-5 font-semibold"><%= review.name %></h2>
-        <div class="w-full h-20 rounded-md bg-zinc-300">
+        <h2 class="mb-2 font-semibold"><%= review.name %></h2>
+        <div class="flex rating mb-5">
+          <% review.rating.times do %>
+            <div class="w-5 h-5 mask mask-star bg-orange-400"></div>
+          <% end %>
+        </div>
+        <div class="w-full h-24 rounded-md bg-zinc-300">
           <p><%= review.body %></p>
         </div>
       </div>
