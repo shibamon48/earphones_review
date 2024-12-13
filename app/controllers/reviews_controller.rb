@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  skip_before_action :require_login, only: %i[new index show]
+  skip_before_action :require_login, only: %i[index show]
   def new
     @review = Review.new
   end
