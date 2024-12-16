@@ -8,4 +8,5 @@ class Review < ApplicationRecord
 
   validates :name, presence: true
   validates :maker, presence: true
+  validates :rating, comparison: { greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
 end
