@@ -5,7 +5,6 @@ class ReviewsController < ApplicationController
   end
 
   def index
-    @user = current_user
     @reviews = Review.all
   end
   
