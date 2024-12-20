@@ -1,2 +1,17 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="flex justify-center w-full h-screen">
+  <div class="flex-col">
+    <%= form_with model: @user do |f| %>
+      <div class="my-5">
+        <%= f.label :avatar %>
+        <%= f.file_field :avatar %>
+      </div>
+      <div class="my-5">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+      <div class="my-5">
+        <%= f.submit "更新", class: "btn" %>
+      </div>
+    <% end %>
+  </div>
+</div>
