@@ -17,8 +17,8 @@
             <div class="w-5 h-5 mask mask-star bg-orange-400"></div>
           <% end %>
         </div>
-        <div class="w-full h-24 rounded-md bg-zinc-300">
-          <p><%= review.body %></p>
+        <div class="w-full h-24 rounded-md p-3 bg-zinc-300">
+          <p class="line-clamp-3"><%= review.body %></p>
         </div>
         <div class="flex mt-5 space-x-4 items-center">
           <% if review.user.avatar.attached? %>
