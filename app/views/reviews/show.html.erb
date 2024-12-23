@@ -1,10 +1,10 @@
 <div class="container mx-auto w-full h-screen px-8 py-14">
   <div class="w-3/4 mx-auto mb-5">
-    <%= link_to user_path(@review.user.id), class: "flex space-x-3" do%>
+    <%= link_to user_path(@review.user.id), class: "flex space-x-3 items-center" do%>
       <% if @review.user.avatar.attached? %>
-        <%= image_tag url_for(@review.user.avatar), size: "30x30" %>
+        <%= image_tag url_for(@review.user.avatar), class: "object-cover w-12 h-12 rounded-full" %>
       <% else %>
-        <%= image_tag asset_path("default.png"), size: "30x30" %>
+        <%= image_tag asset_path("default.png"), class: "object-cover w-12 h-12 rounded-full" %>
       <% end %>
 
       <p><%= @review.user.name %></p>
