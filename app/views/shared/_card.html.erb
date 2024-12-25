@@ -3,9 +3,9 @@
     <div class="flex">
       <div class="w-32 h-32 m-5">
         <% if review.image.attached? %>
-          <%= image_tag review.image, class: "w-32 h-32 rounded-md" %>
+          <%= image_tag review.image, class: "object-cover w-32 h-32 rounded-md" %>
         <% else %>
-          <div class="w-full h-full rounded-md bg-zinc-500"></div>
+          <%= image_tag asset_path("image.png"), class: "object-contain w-32 h-32 rounded-md bg-zinc-200" %>
         <% end %>
       </div>
 

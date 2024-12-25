@@ -25,7 +25,8 @@ class UsersController < ApplicationController
       flash[:info] = "作成しました！"
       redirect_to root_path
     else
-      render :new
+      flash.now[:error] = "作成に失敗しました"
+      render :new, status: :unprocessable_entity
     end
   end
 

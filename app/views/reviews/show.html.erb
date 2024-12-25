@@ -14,9 +14,9 @@
   <div class="flex justify-center space-x-40">
     <div class="w-80 h-80">
       <% if @review.image.attached? %>
-        <%= image_tag @review.image, class: "w-80 h-80" %>
+        <%= image_tag @review.image, class: "object-cover w-80 h-80" %>
       <% else %>
-        <div class="w-full h-full bg-slate-400"></div>
+        <%= image_tag asset_path("image.png"), class: "object-contain w-80 h-80 rounded-md bg-zinc-200" %>
       <% end %>
     </div>
 
@@ -46,8 +46,10 @@
     <p class="w-full bg-white p-8"><%= @review.body %></p>
   </div>
 
-  <div class="flex justify-around my-10">
-    <%= link_to "編集", edit_review_path(@review), class: "btn btn-primary" %>
-    <%= link_to "削除", review_path(@review), data: { turbo_method: :delete }, class: "btn btn-secondary" %>
-  </div> 
+  <% if current_user.present? && @review.user.id == current_user.id %>
+    <div class="flex justify-around my-10">
+      <%= link_to "編集", edit_review_path(@review), class: "btn btn-primary" %>
+      <%= link_to "削除", review_path(@review), data: { turbo_method: :delete }, class: "btn btn-secondary" %>
+    </div> 
+  <% end %>
 </div>

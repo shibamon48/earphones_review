@@ -1,9 +1,8 @@
 <div class="container mx-auto w-full h-screen px-8 py-14">
   <%= form_with model: @review do |f| %>
-    <div class="flex justify-center space-x-40">
+    <div class="flex justify-center space-x-32">
       <div>
-        <div class="w-80 h-80 bg-slate-400">
-        </div>
+        <%= image_tag asset_path("image.png"), class: "object-contain w-80 h-80 rounded-md bg-zinc-200" %>
         
         <div class="py-5">
           <%= f.label :image %>
