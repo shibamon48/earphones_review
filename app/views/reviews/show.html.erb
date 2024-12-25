@@ -46,8 +46,10 @@
     <p class="w-full bg-white p-8"><%= @review.body %></p>
   </div>
 
-  <div class="flex justify-around my-10">
-    <%= link_to "編集", edit_review_path(@review), class: "btn btn-primary" %>
-    <%= link_to "削除", review_path(@review), data: { turbo_method: :delete }, class: "btn btn-secondary" %>
-  </div> 
+  <% if current_user.present? && @review.user.id == current_user.id %>
+    <div class="flex justify-around my-10">
+      <%= link_to "編集", edit_review_path(@review), class: "btn btn-primary" %>
+      <%= link_to "削除", review_path(@review), data: { turbo_method: :delete }, class: "btn btn-secondary" %>
+    </div> 
+  <% end %>
 </div>
