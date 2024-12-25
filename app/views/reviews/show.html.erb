@@ -14,9 +14,9 @@
   <div class="flex justify-center space-x-40">
     <div class="w-80 h-80">
       <% if @review.image.attached? %>
-        <%= image_tag @review.image, class: "w-80 h-80" %>
+        <%= image_tag @review.image, class: "object-cover w-80 h-80" %>
       <% else %>
-        <div class="w-full h-full bg-slate-400"></div>
+        <%= image_tag asset_path("image.png"), class: "object-contain w-80 h-80 rounded-md bg-zinc-200" %>
       <% end %>
     </div>
 

@@ -1,8 +1,11 @@
 <div class="container mx-auto w-full h-screen px-8 py-14">
   <%= form_with model: @review do |f| %>
     <div class="flex justify-center space-x-40">
-      <div class="w-80 h-80 bg-slate-400">
-      </div>
+      <% if @review.image.attached? %>
+        <%= image_tag @review.image, class: "object-cover w-80 h-80" %>
+      <% else %>
+        <%= image_tag asset_path("image.png"), class: "object-contain w-80 h-80 rounded-md bg-zinc-200" %>
+      <% end %>
 
       <div class="w-96 h-96">
         <div class= "my-5">
