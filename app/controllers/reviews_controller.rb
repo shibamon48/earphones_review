@@ -5,7 +5,18 @@ class ReviewsController < ApplicationController
   end
 
   def index
-    @reviews = Review.all
+    case params[:sort]
+      when "latest"
+        @reviews = Review.order(created_at: :asc)
+      when "old"
+        @reviews = Review.order(created_at: :desc)
+      when "star"
+        @reviews = Review.order(rating: :desc)
+      when "rating_low"
+        @reviews = Review.order(rating: :asc)
+      else
+        @reviews = Review.all
+      end
   end
   
   def show
