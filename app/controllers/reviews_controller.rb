@@ -12,10 +12,8 @@ class ReviewsController < ApplicationController
         @reviews = Review.order(created_at: :desc)
       when "star"
         @reviews = Review.order(rating: :desc)
-      when "rating_low"
-        @reviews = Review.order(rating: :asc)
       else
-        @reviews = Review.all
+        @reviews = Review.order(created_at: :asc)
       end
   end
   

@@ -7,7 +7,7 @@
         <input type="text" placeholder="タグ" class="input input-bordered w-full max-w-xs" />
       </div>
       <div>
-        <%= f.select :sort, ["latest", "old", "star"], {}, class: "select select-bordered w-full max-w-md" %>
+        <%= f.select :sort, ["latest", "old", "star"], {selected: params[:sort]}, class: "select select-bordered w-full max-w-md" %>
       </div>
       <%= f.submit "検索", class: "btn" %>
     <% end %>
