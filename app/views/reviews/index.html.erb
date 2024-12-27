@@ -11,9 +11,11 @@
       <%= f.select :sort, ["latest", "old", "star"], {selected: params[:sort]}, onchange: 'this.form.submit()', class: "select select-bordered w-full max-w-xs" %>
     <% end %>
   </div>
-  
+
   <div class="flex justify-around grid grid-cols-3 pt-3">
     <%= render partial: "shared/card", collection: @reviews, as: 'review'%>
   </div>
+
+  <%= paginate @reviews %>
 
 </div>
