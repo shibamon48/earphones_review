@@ -8,13 +8,13 @@ class ReviewsController < ApplicationController
     @q = Review.ransack(params[:q])
     case params[:sort]
       when "latest"
-        @reviews = @q.result(distinct: true).order(created_at: :asc)
+        @reviews = @q.result(distinct: true).order(created_at: :asc).page(params[:page]).per(6)
       when "old"
-        @reviews = @q.result(distinct: true).order(created_at: :desc)
+        @reviews = @q.result(distinct: true).order(created_at: :desc).page(params[:page]).per(6)
       when "star"
-        @reviews = @q.result(distinct: true).order(rating: :desc)
+        @reviews = @q.result(distinct: true).order(rating: :desc).page(params[:page]).per(6)
       else
-        @reviews = @q.result(distinct: true).order(created_at: :asc)
+        @reviews = @q.result(distinct: true).order(created_at: :asc).page(params[:page]).per(6)
       end
   end
   
