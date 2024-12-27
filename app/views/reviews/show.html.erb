@@ -43,7 +43,7 @@
 
   <div class="w-3/4 mx-auto">
     <p>レビュー</p>
-    <p class="w-full bg-white p-8"><%= @review.body %></p>
+    <p class="w-full bg-white p-8 whitespace-pre-line"><%= @review.body %></p>
   </div>
 
   <% if current_user.present? && @review.user.id == current_user.id %>
