@@ -5,15 +5,16 @@ class ReviewsController < ApplicationController
   end
 
   def index
+    @q = Review.ransack(params[:q])
     case params[:sort]
       when "latest"
-        @reviews = Review.order(created_at: :asc)
+        @reviews = @q.result(distinct: true).order(created_at: :asc)
       when "old"
-        @reviews = Review.order(created_at: :desc)
+        @reviews = @q.result(distinct: true).order(created_at: :desc)
       when "star"
-        @reviews = Review.order(rating: :desc)
+        @reviews = @q.result(distinct: true).order(rating: :desc)
       else
-        @reviews = Review.order(created_at: :asc)
+        @reviews = @q.result(distinct: true).order(created_at: :asc)
       end
   end
   
