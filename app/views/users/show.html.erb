@@ -7,7 +7,10 @@
     <% end %>
     <h2><%= @user.name %></h2>
     <% if current_user.present? && @user.id == current_user.id %>
-      <%= link_to "プロフィールを編集する", edit_user_path, class: "btn" %>
+      <div class="mx-auto space-x-5">
+        <%= link_to "プロフィールを編集する", edit_user_path, class: "btn" %>
+        <%= link_to "ログアウト", logout_path, data: {turbo_method: :delete, turbo_confirm: "ログアウトしますか？"}, class: "btn" %>
+      </div>
     <% end %>
   </div>
 
