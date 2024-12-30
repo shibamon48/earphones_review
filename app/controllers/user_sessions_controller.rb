@@ -6,7 +6,7 @@ class UserSessionsController < ApplicationController
   def create
     user = login(params[:email], params[:password])
     if user
-      flash[:notice] = "ログインしました！"
+      flash[:info] = "ログインしました！"
       redirect_to root_path
     else
       flash.now[:error] = "メールアドレスまたはパスワードが間違っています"
@@ -16,7 +16,7 @@ class UserSessionsController < ApplicationController
 
   def destroy
     logout
-    flash[:notice] = "ログアウトしました！"
+    flash[:info] = "ログアウトしました！"
     redirect_to root_path, status: :see_other
   end
 end
