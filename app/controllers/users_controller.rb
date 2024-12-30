@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @review = Review.where(user_id: @user.id)
+    @review = Review.where(user_id: @user.id).page(params[:page]).per(6)
   end
 
   def edit

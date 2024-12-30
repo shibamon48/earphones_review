@@ -1,4 +1,4 @@
-<div class="container mx-auto w-full min-h-screen px-8 py-14">
+<div class="container mx-auto w-full min-h-screen px-8 py-14 max-sm:py-10">
   <div class="w-3/4 mx-auto mb-5">
     <%= link_to user_path(@review.user.id), class: "flex space-x-3 items-center" do%>
       <% if @review.user.avatar.attached? %>
@@ -11,16 +11,16 @@
     <% end %>
   </div>
 
-  <div class="flex justify-center space-x-40">
-    <div class="w-80 h-80">
+  <div class="flex justify-around md:space-x-40 max-sm:flex-col">
+    <div>
       <% if @review.image.attached? %>
-        <%= image_tag @review.image, class: "object-cover w-80 h-80" %>
+        <%= image_tag @review.image, class: "object-cover max-w-80 max-h-80" %>
       <% else %>
-        <%= image_tag asset_path("image.png"), class: "object-contain w-80 h-80 rounded-md bg-zinc-200" %>
+        <%= image_tag asset_path("image.png"), class: "object-contain max-w-80 w-full max-h-80 rounded-md bg-zinc-200 max-sm:mx-auto" %>
       <% end %>
     </div>
 
-    <div class="w-96 h-96">
+    <div class="max-sm:max-w-80 max-sm:w-full max-sm:mx-auto">
       <div class= "my-5">
         <p>メーカー</p>
         <p><%= @review.maker %></p>
@@ -37,11 +37,10 @@
           <% end %>
         </div>
       </div>
-
     </div>
   </div>
 
-  <div class="w-3/4 mx-auto">
+  <div class="w-full sm:w-3/4 mx-auto">
     <p>レビュー</p>
     <p class="w-full bg-white p-8 whitespace-pre-line"><%= @review.body %></p>
   </div>

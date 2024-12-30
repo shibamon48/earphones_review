@@ -8,16 +8,17 @@
     <h2><%= @user.name %></h2>
     <% if current_user.present? && @user.id == current_user.id %>
       <div class="mx-auto space-x-5">
-        <%= link_to "プロフィールを編集する", edit_user_path, class: "btn" %>
-        <%= link_to "ログアウト", logout_path, data: {turbo_method: :delete, turbo_confirm: "ログアウトしますか？"}, class: "btn" %>
+        <%= link_to "プロフィールを編集する", edit_user_path, class: "btn bg-stone-300" %>
+        <%= link_to "ログアウト", logout_path, data: {turbo_method: :delete, turbo_confirm: "ログアウトしますか？"}, class: "btn bg-red-500" %>
       </div>
     <% end %>
   </div>
 
   <div class="flex flex-col items-center">
     <h2>マイレビュー</h2>
-    <div class="flex justify-around grid grid-cols-3 pt-3">
+    <div class="flex justify-around grid grid-cols-1 pt-3 md:grid-cols-2 xl:grid-cols-3">
       <%= render partial: "shared/card", collection: @review, as: 'review' %>
     </div>
+    <%= paginate @review %>
   </div>
 </div>
