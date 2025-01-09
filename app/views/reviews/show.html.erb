@@ -11,7 +11,7 @@
     <% end %>
   </div>
 
-  <div class="flex justify-around md:space-x-40 max-sm:flex-col">
+  <div class="flex justify-around md:space-x-30 max-sm:flex-col">
     <div>
       <% if @review.image.attached? %>
         <%= image_tag @review.image, class: "object-cover max-w-80 max-h-80" %>
@@ -21,16 +21,16 @@
     </div>
 
     <div class="max-sm:max-w-80 max-sm:w-full max-sm:mx-auto">
-      <div class= "my-5">
-        <p>メーカー</p>
+      <div class= "my-5 md:space-x-5 md:flex">
+        <p><%= t('.maker') %></p>
         <p><%= @review.maker %></p>
       </div>
-      <div class= "my-5">
-        <p>名前</p>
+      <div class= "my-5 md:space-x-5 md:flex">
+        <p><%= t('.name') %></p>
         <p><%= @review.name %></p>
       </div>
-      <div class= "mb-5">
-        <p>評価</p>
+      <div class= "mb-5 md:space-x-5 md:flex">
+        <p><%= t('.rating') %></p>
         <div class="flex rating">
           <% @review.rating.times do %>
             <div class="w-5 h-5 mask mask-star bg-orange-400"></div>
@@ -40,15 +40,15 @@
     </div>
   </div>
 
-  <div class="w-full sm:w-3/4 mx-auto">
-    <p>レビュー</p>
+  <div class="w-full sm:w-3/4 mx-auto mt-10">
+    <p><%= t('.review') %></p>
     <p class="w-full bg-white p-8 whitespace-pre-line"><%= @review.body %></p>
   </div>
 
   <% if current_user.present? && @review.user.id == current_user.id %>
     <div class="flex justify-around my-10">
-      <%= link_to "編集", edit_review_path(@review), class: "btn btn-primary" %>
-      <%= link_to "削除", review_path(@review), data: { turbo_method: :delete }, class: "btn btn-secondary" %>
+      <%= link_to t('.edit'), edit_review_path(@review), class: "btn btn-primary" %>
+      <%= link_to t('.delete'), review_path(@review), data: { turbo_method: :delete }, class: "btn btn-secondary" %>
     </div> 
   <% end %>
 </div>

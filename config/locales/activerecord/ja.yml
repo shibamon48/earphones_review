@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      review: レビュー
+    attributes:
+      user:
+        email: メールアドレス
+        name: 名前
+        avatar: アバター
+        password: パスワード
+        password_confirmation: パスワード確認
+      review:
+        maker: メーカー
+        name: 製品名
+        rating: 評価
+        image: 画像

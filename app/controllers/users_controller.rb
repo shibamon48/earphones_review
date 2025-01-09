@@ -22,10 +22,10 @@ class UsersController < ApplicationController
 
     if user.save
       session[:user_id] = user.id
-      flash[:info] = "作成しました！"
+      flash[:info] = t('.success')
       redirect_to root_path
     else
-      flash.now[:error] = "作成に失敗しました"
+      flash.now[:error] = t('.failed')
       render :new, status: :unprocessable_entity
     end
   end
@@ -34,10 +34,10 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
 
     if user.update(user_params)
-      flash[:info] = "変更しました！"
+      flash[:info] = t('.success')
       redirect_to user_path(user.id)
     else
-      flash.now[:error] = "変更に失敗しました"
+      flash.now[:error] = t('.failed')
       render :edit, status: :unprocessable_entity
     end
   end

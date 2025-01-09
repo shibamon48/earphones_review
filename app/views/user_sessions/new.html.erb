@@ -1,6 +1,6 @@
 <div class="flex justify-center w-screen h-screen">
   <div class="flex-col my-40">
-    <h1 class="text-5xl font-bold">ログインフォーム</h1>
+    <h1 class="text-5xl font-bold"><%= t('.title') %></h1>
 
     <%= form_with url: login_path do |f|%>
       <div class="my-5">
@@ -11,11 +11,11 @@
         <%= f.label :password, class: "form-label"%>
         <%= f.text_field :password, class: "form-control" %>
       </div>
-      <%= f.submit "ログイン", class: "btn btn-primary" %>
+      <%= f.submit t('.login'), class: "btn btn-primary" %>
     <% end %>
 
     <div class="my-5">
-      <%= link_to "会員登録はこちら", new_user_path, class: "font-medium underline"%>
+      <%= link_to t('.to_register_page'), new_user_path, class: "font-medium underline"%>
     </div>
   </div>
 </div>
