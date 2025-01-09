@@ -1,12 +1,12 @@
 <div class="container mx-auto items-center w-full min-h-screen">
   <div class="flex max-sm:flex-col justify-around">
     <%= search_form_for @q, class: "mx-auto flex space-x-12 lg:space-x-36 my-5" do |f| %>
-      <%= f.search_field :maker_or_name_or_body_cont, placeholder: "フリーワード", class: "input input-bordered w-full max-w-xs" %>
-      <%= f.submit "検索", class: "btn btn-primary" %>
+      <%= f.search_field :maker_or_name_or_body_cont, placeholder: t('.word_search'), class: "input input-bordered w-full max-w-xs" %>
+      <%= f.submit t('.search'), class: "btn btn-primary" %>
     <% end %>
 
     <%= form_with url: reviews_path, method: :get, class: "mx-auto my-5" do |f| %>
-      <%= f.select :sort, ["latest", "old", "star"], {selected: params[:sort]}, onchange: 'this.form.submit()', class: "select select-bordered w-full max-w-xs" %>
+      <%= f.select :sort, [[t('.latest'), "latest"], [t('.old'), "old"], [t('.star'), "star"]], {selected: params[:sort]}, onchange: 'this.form.submit()', class: "select select-bordered w-full max-w-xs" %>
     <% end %>
   </div>
 

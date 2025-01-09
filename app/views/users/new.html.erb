@@ -1,7 +1,7 @@
 
 <div class="flex justify-center w-screen h-screen">
   <div class="flex-col my-40">
-    <h1 class="text-5xl font-bold">会員登録</h1>
+    <h1 class="text-5xl font-bold"><%= t('.title') %></h1>
     <%= form_with model: @user do |f| %>
       <div class= "my-5">
         <%= f.label :name %>
@@ -19,7 +19,7 @@
         <%= f.label :password_confirmation %>
         <%= f.password_field :password_confirmation %>
       </div>
-      <%= f.submit "作成", class: "btn btn-primary" %>
+      <%= f.submit t('.create'), class: "btn btn-primary" %>
     <% end %>
   </div>
 

@@ -33,9 +33,9 @@
     </div>
 
     <div class="flex flex-col my-10 max-sm:w-full max-sm:mx-auto">
-      <%= f.text_area :body, class: "textarea textarea-bordered min-h-96 w-full lg:w-3/4 mx-auto", placeholder: "レビュー" %>
+      <%= f.text_area :body, class: "textarea textarea-bordered min-h-96 w-full lg:w-3/4 mx-auto", placeholder: t('.review') %>
       <div class="mx-auto my-10">
-        <%= f.submit "投稿する", class: "btn bg-stone-300" %>
+        <%= f.submit t('.create'), class: "btn bg-stone-300" %>
       </div>
     </div>
   <% end %>

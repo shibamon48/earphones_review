@@ -8,13 +8,13 @@ class ReviewsController < ApplicationController
     @q = Review.ransack(params[:q])
     case params[:sort]
       when "latest"
-        @reviews = @q.result(distinct: true).order(created_at: :asc).page(params[:page]).per(6)
-      when "old"
         @reviews = @q.result(distinct: true).order(created_at: :desc).page(params[:page]).per(6)
+      when "old"
+        @reviews = @q.result(distinct: true).order(created_at: :asc).page(params[:page]).per(6)
       when "star"
         @reviews = @q.result(distinct: true).order(rating: :desc).page(params[:page]).per(6)
       else
-        @reviews = @q.result(distinct: true).order(created_at: :asc).page(params[:page]).per(6)
+        @reviews = @q.result(distinct: true).order(created_at: :desc).page(params[:page]).per(6)
       end
   end
   
@@ -29,10 +29,10 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     if @review.save
-      flash[:info] = "レビューを投稿しました"
+      flash[:info] = t('.success')
       redirect_to reviews_path
     else
-      flash.now[:error] = "レビューの投稿に失敗しました"
+      flash.now[:error] = t('.failed')
       render :new, status: :unprocessable_entity
     end
   end
@@ -40,10 +40,10 @@ class ReviewsController < ApplicationController
   def update
     @review = Review.find(params[:id])
     if @review.update(review_params)
-      flash[:info] = "レビューを更新しました"
+      flash[:info] = t('.success')
       redirect_to review_path(@review)
     else
-      flash.now[:error] = "レビューの更新に失敗しました"
+      flash.now[:error] = t('.failed')
       render :edit, status: :unprocessable_entity
     end
   end
@@ -51,7 +51,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review = Review.find(params[:id])
     @review.destroy!
-    flash[:info] = "レビューを削除しました"
+    flash[:info] = t('.success')
     redirect_to reviews_path, status: :see_other
   end
   

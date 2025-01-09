@@ -1,0 +1,66 @@
+ja:
+  header:
+    top: トップ
+    review_create: レビュー作成
+    review_index: レビュー一覧
+    login: ログイン
+    mypage: マイページ
+  helpers:
+    label:
+      email: メールアドレス
+      password: パスワード
+  reviews:
+    new:
+      review: レビュー
+      create: 投稿する
+    create:
+      success: レビューを投稿しました
+      failed: レビューの投稿に失敗しました
+    index:
+      word_search: フリーワード検索
+      search: 検索
+      latest: 作成日時が新しい順
+      old: 作成日時が古い順
+      star: 評価が高い順
+    show:
+      maker: メーカー
+      name: 商品名
+      rating: 評価
+      review: レビュー
+      edit: 編集
+      delete: 削除
+    edit:
+      review: レビュー
+      update: 更新する
+    update:
+      success: レビューを更新しました
+      failed: レビューの更新に失敗しました
+    destroy:
+      success: レビューを削除しました
+  user_sessions:
+    new:
+      title: ログインフォーム
+      login: ログイン
+      to_register_page: 会員登録はこちら
+    create:
+      success: ログインに成功しました！
+      failed: メールアドレスまたはパスワードが間違っています
+    destroy:
+      success: ログアウトしました
+  users:
+    new:
+      title: 会員登録
+      create: 登録
+    create:
+      success: 作成しました！
+      failed: 作成に失敗しました
+    show:
+      logout: ログアウト
+      edit_profile: プロフィールを編集する
+      my_review: マイレビュー
+    edit:
+      update: 更新
+    update:
+      success: 変更しました！
+      failed: 変更に失敗しました
+  
